@@ -1,11 +1,21 @@
 import pandas as pd
 from datetime import datetime
+import argparse
 
+# Debug option to display columns in pandas
 pd.set_option('display.max_columns', None)
-# pd.set_option('display.max_rows', None)
+
+# argparse description
+parser = argparse.ArgumentParser(description="Process downloaded csv files to check agent's internal hold cases")
+
+# Adding argument to take in the correct csv
+parser.add_argument("--csv", help="The CSV file that you're looking to intake and process")
+args = parser.parse_args()
 
 # Read the CSV
-data = pd.read_csv("Internal hold cases - Team Alex.csv")
+data = pd.read_csv(args.csv)
+
+
 
 # Get the list of agents
 agentList = data["Last Engaged User (Case)"].unique()
