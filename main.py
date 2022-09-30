@@ -39,6 +39,7 @@ class csAgent:
         return int(len(self.cases))
 
     # Get the earliest case touch
+    # This is not working exactly correctly TODO - to fix as well as make sure to include -which- case we have last touched
     def earliestCase(self):
         all_times = {}
         for caseid in self.cases.keys():
